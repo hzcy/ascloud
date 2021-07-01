@@ -19,15 +19,15 @@ RUN pip3 install projector-installer \
     --trusted-host pypi.python.org \
     --trusted-host files.pythonhosted.org
 
-RUN wget https://redirector.gvt1.com/edgedl/android/studio/ide-zips/4.2.0.16/android-studio-ide-202.6939830-linux.tar.gz \
-    && tar -xvf android-studio-ide-202.6939830-linux.tar.gz -C /opt/ \
-    && rm -rvf android-studio-ide-202.6939830-linux.tar.gz
+RUN wget https://redirector.gvt1.com/edgedl/android/studio/ide-zips/4.2.2.0/android-studio-ide-202.7486908-linux.tar.gz \
+    && tar -xvf android-studio-ide-202.7486908-linux.tar.gz -C /opt/ \
+    && rm -rvf android-studio-ide-202.7486908-linux.tar.gz
 
-RUN wget https://dl.google.com/android/repository/commandlinetools-linux-6858069_latest.zip \
-    && unzip -d /opt/ commandlinetools-linux-6858069_latest.zip \
+RUN wget https://dl.google.com/android/repository/commandlinetools-linux-7302050_latest.zip \
+    && unzip -d /opt/ commandlinetools-linux-7302050_latest.zip \
     && mkdir -p ${ANDROID_HOME}/cmdline-tools \
     && mv /opt/cmdline-tools ${ANDROID_HOME}/cmdline-tools/latest \
-    && rm -rvf commandlinetools-linux-6858069_latest.zip
+    && rm -rvf commandlinetools-linux-7302050_latest.zip
 
 RUN yes | sdkmanager --sdk_root=${ANDROID_SDK_ROOT} --install "build-tools;30.0.2" \
     && yes | sdkmanager --sdk_root=${ANDROID_SDK_ROOT} --install "emulator" \
